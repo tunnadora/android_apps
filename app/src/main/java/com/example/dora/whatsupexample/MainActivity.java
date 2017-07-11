@@ -16,6 +16,7 @@ import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         passwd=(EditText) findViewById(R.id.paaswd);
         signup = (Button)findViewById(R.id.signup);
         mauth=FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("users");
 
 
         signup.setOnClickListener(new View.OnClickListener() {
@@ -47,8 +49,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void signUp() {
-        String email = uname.getText().toString();
-        String password = passwd.getText().toString();
+       final String email = uname.getText().toString();
+        final String password = passwd.getText().toString();
 
         if(TextUtils.isEmpty(email)){
             Toast.makeText(this , "PLEASE ENTER EMAIL ....",Toast.LENGTH_LONG).show();
@@ -68,15 +70,16 @@ public class MainActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             String user_id = mauth.getCurrentUser().getUid();
 
-                            uname.setText("");
-                            passwd.setText("");
+
 
                             DatabaseReference current_u_id = mDatabase.child(user_id);
 
 
-                            current_u_id.child("email").setValue(uname.getText().toString());
+                            current_u_id.child(email);
 
 
+                            uname.setText("");
+                            passwd.setText("");
                             Toast.makeText(MainActivity.this, "Sign up successful..",Toast.LENGTH_LONG ).show();
 
 
