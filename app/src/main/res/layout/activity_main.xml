@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dora.whatsupexample.MainActivity">
+
+
+
+    <RelativeLayout
+      android:layout_width="368dp"
+      android:layout_height="495dp" >
+
+
+        <EditText
+            android:id="@+id/uname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text=""
+            android:layout_above="@+id/paaswd"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="23dp" />
+
+        <EditText
+            android:id="@+id/paaswd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:layout_centerVertical="true"
+            android:layout_alignLeft="@+id/uname"
+            android:layout_alignStart="@+id/uname" />
+
+        <Button
+            android:id="@+id/signup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="133dp"
+            android:text="signup"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+    </RelativeLayout>
+
+
+</android.support.constraint.ConstraintLayout>
